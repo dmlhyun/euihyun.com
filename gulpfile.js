@@ -9,6 +9,8 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var sequence = require('run-sequence');
+var babel = require('gulp-babel');
+var rename = require('gulp-rename');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/styles.scss')
@@ -19,6 +21,27 @@ gulp.task('sass', function() {
     }))
 });
 
+gulp.task('cssnano', function() {
+  return gulp.src('app/css/styles.css')
+  .pipe(cssnano())
+  .pipe(rename( path => {
+    path.basename += ".min";
+    path.extname = ".css";
+  }))
+  .pipe(gulp.dest('dist/css'))
+});
+
+gulp.task('uglify', function() {
+  return gulp.src('app/js/*.js')
+  .pipe(babel({presets: ['es2015']}))
+  .pipe(uglify())
+  .pipe(rename( path => {
+    path.basename += ".min";
+    path.extname = ".js";
+  }))
+  .pipe(gulp.dest('dist/js'))
+});
+
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
@@ -27,11 +50,8 @@ gulp.task('browserSync', function() {
   })
 });
 
-gulp.task('useref', function() {
+gulp.task('html', function() {
   return gulp.src('app/*.html')
-    .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });
 
@@ -48,8 +68,15 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('dist/fonts'))
 });
 
-gulp.task('clean:dist', function() {
+gulp.task('clean', function() {
   return del.sync('dist');
+});
+
+gulp.task('styles', function(callback) {
+  sequence('sass',
+    'cssnano',
+    callback
+  );
 });
 
 // Watch task
@@ -61,14 +88,14 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
 
 // Build task
 gulp.task('build', function(callback) {
-  sequence('clean:dist',
-    ['sass', 'useref', 'images', 'fonts'],
+  sequence('clean',
+    ['styles', 'uglify', 'images', 'fonts', 'html'],
     callback
   )
 });
 
 gulp.task('default', function(callback) {
-  sequence(['sass', 'browserSync', 'watch'],
+  sequence(['sass', 'browserSync'], 'watch',
     callback
   )
 });
