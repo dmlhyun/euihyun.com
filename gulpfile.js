@@ -10,7 +10,6 @@ var cache = require('gulp-cache');
 var del = require('del');
 var sequence = require('run-sequence');
 var babel = require('gulp-babel');
-var rename = require('gulp-rename');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/styles.scss')
@@ -24,10 +23,6 @@ gulp.task('sass', function() {
 gulp.task('cssnano', function() {
   return gulp.src('app/css/styles.css')
   .pipe(cssnano())
-  .pipe(rename( path => {
-    path.basename += ".min";
-    path.extname = ".css";
-  }))
   .pipe(gulp.dest('docs/css'))
 });
 
@@ -35,10 +30,6 @@ gulp.task('uglify', function() {
   return gulp.src('app/js/*.js')
   .pipe(babel({presets: ['es2015']}))
   .pipe(uglify())
-  .pipe(rename( path => {
-    path.basename += ".min";
-    path.extname = ".js";
-  }))
   .pipe(gulp.dest('docs/js'))
 });
 
