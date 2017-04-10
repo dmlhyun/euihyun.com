@@ -1,0 +1,21 @@
+.main-name {
+  font-family: "Lobster", cursive;
+  font-size: 36px;
+  color: #FCFBE3; }
+
+.header-text {
+  font-family: "Josefin Slab", serif;
+  font-size: 24px;
+  color: #FCFBE3; }
+
+.body-text {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  color: #FCFBE3; }
+  .body-text a {
+    color: #FCFBE3; }
+    .body-text a:hover {
+      border-bottom: 1px dotted #FCFBE3; }
+
+.main-background {
+  background: #E9627D; }

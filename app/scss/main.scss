@@ -1,0 +1,26 @@
+@import 'constants';
+
+.main-name {
+  @include title(36px);
+  color: $cream;
+}
+
+.header-text {
+  @include header(24px);
+  color: $cream;
+}
+
+.body-text {
+  @include text(18px);
+  color: $cream;
+  a {
+    color: $cream;
+    &:hover {
+      border-bottom: 1px dotted $cream;
+    }
+  }
+}
+
+.main-background {
+  background: $pink;
+}

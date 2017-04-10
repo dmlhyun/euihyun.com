@@ -1,0 +1,14 @@
+@import 'constants';
+
+.modal-content {
+  h4 {
+    @include title(32px);
+  }
+  p {
+    @include text(14px);
+  }
+}
+
+.project-title {
+  @include text(16px);
+}

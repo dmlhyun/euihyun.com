@@ -1,0 +1,38 @@
+// Font constants
+$raleway: 'Raleway', sans-serif;
+$lobster: 'Lobster', cursive;
+$josefin: 'Josefin Slab', serif;
+
+// Color
+$pink: #E9627D;
+$cream: #FCFBE3;
+
+// Mixins
+@mixin text($size) {
+  font: {
+    family: $raleway;
+    size: $size;
+  }
+}
+
+@mixin header($size) {
+  font: {
+    family: $josefin;
+    size: $size;
+  }
+}
+
+@mixin title($size) {
+  font: {
+    family: $lobster;
+    size: $size;
+  }
+}
+
+// Transitions
+@mixin ease($type) {
+  transition: $type 0.5s ease;
+}
+@mixin linear($type) {
+  transition: $type 0.2s linear;
+}
