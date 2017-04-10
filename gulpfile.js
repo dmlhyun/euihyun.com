@@ -51,6 +51,11 @@ gulp.task('cname', function() {
     .pipe(gulp.dest('docs'))
 });
 
+gulp.task('assets', function() {
+  return gulp.src('app/assets/**/*')
+    .pipe(gulp.dest('docs/assets'))
+})
+
 gulp.task('images', function() {
   return gulp.src('app/images/**/*.+(png|jpg|gif|svg)')
     .pipe(cache(imagemin({
@@ -85,7 +90,7 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
 // Build task
 gulp.task('build', function(callback) {
   sequence('clean',
-    ['styles', 'uglify', 'images', 'fonts', 'html'],
+    ['styles', 'uglify', 'images', 'fonts', 'html', 'assets'],
     'cname',
     callback
   )

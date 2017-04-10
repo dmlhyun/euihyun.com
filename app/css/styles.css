@@ -31,3 +31,9 @@
 .project-title {
   font-family: "Raleway", sans-serif;
   font-size: 16px; }
+
+.back {
+  position: fixed;
+  left: 5%;
+  top: 5%;
+  z-index: 99; }
