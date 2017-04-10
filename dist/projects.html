@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Euihyun Chung | projects</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Lobster|Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body class="blue lighten-2">
+    <div class="container">
+      <div class="row">
+        <nav>
+          <div class="nav-wrapper">
+            <div class="col s12">
+              <a href="index.html" class="breadcrumb">home</a>
+              <a href="#!" class="breadcrumb">projects</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- League App -->
+      <div class="row">
+        <div class="col s12">
+          <!-- Modal Trigger -->
+          <div class="card">
+            <div class="card-image">
+              <a class="modal-trigger waves-effect waves-light" href="#modal1">
+                <img class="responsive-img z-depth-2" src="images/leagueApp.png" alt="darkn image">
+              </a>
+            </div>
+            <div class="card-content">
+              <p class="project-title">1v1MeBro - a League of Legends Design Project</p>
+            </div>
+            <div class="card-action">
+              <a class="modal-trigger waves-effect waves-light" href="#modal1">See more</a>
+            </div>
+          </div>
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+              <h4 class="">1v1MeBro</h4>
+              <p>A League of Legends design project that will soon evolve to a React application.</p>
+              <p>
+                <a class="btn disabled" target="_blank" href="">Coming Soon</a>
+              </p>
+              <img class="responsive-img z-depth-2" src="images/leagueApp.png" alt="darkn image">
+              <p>Technologies: Sketch, React, Redux, Webpack Sass, Git, Riot Games API</p>
+              <p>
+                I don't know if can tell yet, but I'm kind of a gamer.
+                League of Legends, the most popular game in the world, makes up a good portion of my life
+                (probably a little too much, but that's besides the point), and I find myself constant using stat sites for myself or other players.
+                But I found that there aren't many sites out there that let you compare two players' stats.
+                The current solution is to open two concurrent tabs and then compare them.
+                Seems like a pain, so I started thinking of creating one, but I wanted to do it right.
+                Using the knowledge from the classroom, I started going through the design process.
+                I had multiple designs going from low to medium and, hopefully soon, to a high fidelity prototype (HFP).
+                <br>
+                The HFP will be created using React (by the way I'm a huge React fanatic) along with the Riot Games' API.
+                More to come soon...
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat ">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- darkn -->
+      <div class="row">
+        <div class="col s12">
+          <!-- Modal Trigger -->
+          <div class="card">
+            <div class="card-image">
+              <a class="modal-trigger waves-effect waves-light" href="#modal2">
+                <img class="responsive-img z-depth-2" src="images/darkn.png" alt="darkn image">
+              </a>
+            </div>
+            <div class="card-content">
+              <p class="project-title">darkn - a Google Chrome Extension</p>
+            </div>
+            <div class="card-action">
+              <a class="modal-trigger waves-effect waves-light" href="#modal2">See more</a>
+            </div>
+          </div>
+          <!-- Modal Structure -->
+          <div id="modal2" class="modal modal-fixed-footer">
+            <div class="modal-content">
+              <h4 class="">darkn</h4>
+              <p>A Google Chrome extension that darkens the Facebook messenger webapp.</p>
+              <p>
+                <a class="btn blue" target="_blank" href="https://chrome.google.com/webstore/detail/darkn/nhcegffaejdcdbacaofjmgiegfglihjg">Download</a>
+                <a class="btn blue" target="_blank" href="https://github.com/andrewjungg/darkn">Source code</a>
+              </p>
+              <img class="responsive-img z-depth-2" src="images/darkn.png" alt="darkn image">
+              <p>Technologies: Gulp, ES6, Sass, Git</p>
+              <p>
+                Let me set up the scene for you; late nights, tired eyes, bright white screens.
+                Yeah, I know it hurts just thinking about it, so I thought why not solve it.
+                That's why I decided to create darkn in hopes of it being the hero your eyes deserves, to be your dark knight (HA).
+                It overlays a new dark theme (and numerous other style changes) to help your eyes and it's easily toggleable with its adorable lightbulb.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat ">Close</a>
+            </div>
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
+    });
+  </script>
+</html>
