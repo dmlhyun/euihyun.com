@@ -28,7 +28,7 @@ gulp.task('cssnano', function() {
     path.basename += ".min";
     path.extname = ".css";
   }))
-  .pipe(gulp.dest('dist/css'))
+  .pipe(gulp.dest('docs/css'))
 });
 
 gulp.task('uglify', function() {
@@ -39,7 +39,7 @@ gulp.task('uglify', function() {
     path.basename += ".min";
     path.extname = ".js";
   }))
-  .pipe(gulp.dest('dist/js'))
+  .pipe(gulp.dest('docs/js'))
 });
 
 gulp.task('browserSync', function() {
@@ -52,7 +52,12 @@ gulp.task('browserSync', function() {
 
 gulp.task('html', function() {
   return gulp.src('app/*.html')
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('docs'))
+});
+
+gulp.task('cname', function() {
+  return gulp.src('app/CNAME')
+    .pipe(gulp.dest('docs'))
 });
 
 gulp.task('images', function() {
@@ -60,16 +65,16 @@ gulp.task('images', function() {
     .pipe(cache(imagemin({
       interlaced: true
     })))
-    .pipe(gulp.dest('dist/images'))
+    .pipe(gulp.dest('docs/images'))
 });
 
 gulp.task('fonts', function() {
   return gulp.src('app/fonts/**/*')
-    .pipe(gulp.dest('dist/fonts'))
+    .pipe(gulp.dest('docs/fonts'))
 });
 
 gulp.task('clean', function() {
-  return del.sync('dist');
+  return del.sync('docs');
 });
 
 gulp.task('styles', function(callback) {
@@ -90,6 +95,7 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
 gulp.task('build', function(callback) {
   sequence('clean',
     ['styles', 'uglify', 'images', 'fonts', 'html'],
+    'cname',
     callback
   )
 });
