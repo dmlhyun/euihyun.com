@@ -22,7 +22,7 @@ gulp.task('sass', function() {
 
 gulp.task('cssnano', function() {
   return gulp.src('app/css/styles.css')
-  .pipe(cssnano())
+  .pipe(cssnano({zindex: false}))
   .pipe(gulp.dest('docs/css'))
 });
 
