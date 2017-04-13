@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/andrewjungg/euihyun.com#readme",
   "devDependencies": {
+    "barba.js": "^1.0.0",
     "browser-sync": "^2.18.8",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
