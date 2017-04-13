@@ -9,7 +9,6 @@ var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var sequence = require('run-sequence');
-var babel = require('gulp-babel');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/styles.scss')
@@ -28,7 +27,6 @@ gulp.task('cssnano', function() {
 
 gulp.task('uglify', function() {
   return gulp.src('app/js/*.js')
-  .pipe(babel({presets: ['es2015']}))
   .pipe(uglify())
   .pipe(gulp.dest('docs/js'))
 });

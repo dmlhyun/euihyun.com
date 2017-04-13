@@ -40,3 +40,16 @@
 
 .my-pink {
   background-color: #E9627D !important; }
+
+.animate-in {
+  animation: fadeIn .5s ease-in; }
+
+.animate-out {
+  transition: opacity .5s;
+  opacity: 0; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
