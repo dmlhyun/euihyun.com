@@ -13,12 +13,14 @@
   font-size: 18px;
   color: #FCFBE3; }
   .body-text a {
-    color: #FCFBE3; }
+    color: #FCFBE3;
+    text-decoration: none; }
     .body-text a:hover {
       border-bottom: 1px dotted #FCFBE3; }
 
 .main-background {
-  background: #E9627D; }
+  background: #E9627D;
+  height: 100vh; }
 
 .modal-content h4 {
   font-family: "Lobster", cursive;
